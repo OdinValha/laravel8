@@ -6,42 +6,42 @@ use Illuminate\Http\Request;
 
 class MyProfileController extends Controller
 {
-    public function create(Request $request)
-    {
+    //
+    public function create( Request $request )
+	{
         $name = $request->get('name');
         $lastname = $request->get('lastname');
 
         $fullname = $name . " " . $lastname;
-        $sensor_name = str_replace("a", "*", $fullname);
+        $sensor_name = str_replace("a","*",$fullname);
         echo $sensor_name;
+		return view("myprofile/create");
+	}
 
-        return view("myprofile/create");
-    }
-    // 
     public function edit($id)
-    {
+    {   
         $profile = (object)[
             "id" => $id,
-            "name" => "James",
+            "name" => "James" ,
             "lastname" =>  "Mars",
             "email" => "james@vru.ac.th",
         ];
         $others = "hello world";
-        return view("myprofile/edit", compact('profile', 'others'));
+        return view("myprofile/edit" , compact('profile','others') );
     }
-    // 
+
     public function show($id)
-    {
+    {   
         $profile = (object)[
             "id" => $id,
-            "name" => "James",
+            "name" => "James" ,
             "lastname" =>  "Mars",
             "email" => "james@vru.ac.th",
         ];
         $others = "hello world";
-        return view("myprofile/show", compact('profile', 'others'));
+        return view("myprofile/show" , compact('profile','others') );
     }
-    // 
+
     public function coronavirus(){
         $reports = [
             (object) ["country"=>"China" , "date"=>"2020-04-19" , "total"=>"2765", "active"=>"790"  , "death"=>"47", "recovered"=>"1928"],
@@ -52,5 +52,4 @@ class MyProfileController extends Controller
         ];
         return view("myprofile/coronavirus", compact("reports") );
     }
-
 }

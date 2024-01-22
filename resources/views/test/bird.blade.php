@@ -1,8 +1,6 @@
 <html>
     <body>
-        <h1>Gallery of Pichet 65122420032 </h1>
-        <p>bird
-        <img src="{{ $bird }}" alt="" width="600px" height="auto"></h1>
-        </p>
+        <h1>gallery of Phatcharee 65122420030 </h1>
+<p1>bird <a href="gallery/bird"><img style="width:250px;"height="250px;"src="{{$bird}}"alt="#"></a></p1>
     </body>
 </html>
