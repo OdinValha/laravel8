@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Storage;
 
-class ProductController extends Controlleroller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
