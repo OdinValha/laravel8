@@ -217,3 +217,26 @@ Route::resource('profile', ProfileController::class);
 Route::resource('user', UserController::class);
 Route::resource('vehicle', VehicleController::class);
 
+
+Route::resource('customer', 'CustomerController');
+Route::resource('quotation', 'QuotationController');
+Route::resource('quotation-detail', 'QuotationDetailController');
+
+
+// week 10
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\QuotationController;
+use App\Http\Controllers\QuotationDetailController;
+
+Route::resource('product', ProductController::class);
+
+// Route::resource('customer', CustomerController::class);
+// Route::resource('quotation', QuotationController::class);
+// Route::resource('quotation-detail', QuotationDetailController::class);
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('customer', CustomerController::class);
+    Route::get('quotation/{id}/pdf', [QuotationController::class, 'pdf']);
+    Route::resource('quotation', QuotationController::class);
+    Route::resource('quotation-detail', QuotationDetailController::class);
+});
